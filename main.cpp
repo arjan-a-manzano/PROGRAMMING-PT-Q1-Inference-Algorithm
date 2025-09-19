@@ -40,7 +40,7 @@ vector<string> prepositions = {
 string input = "";
 string inputLower = "";
 
-bool isUserStillEntering = true; // flag to whether or not keep user prompting statement because he or she has or has noted used negations or prepositions
+bool isUserStillEntering = true; // flag to whether or not keep user prompting statement because he or she has or has not used negations or prepositions
 
 string toLowercase(const std::string& s) {
     std::string result = s; // copy original
@@ -74,7 +74,7 @@ bool promptStatement(string& input, string& inputLower, const vector<string>& ne
 }
 
 void askStatementUntilSuccess(string& input, string& inputLower, const vector<string>& negationsList, string& humanText) {
-    while (!promptStatement(input, inputLower, negationsList)) { // user has enterd a negation or preposition word
+    while (!promptStatement(input, inputLower, negationsList)) { // user has entered a negation or preposition word
         cout << "Enter input again:" << endl;
         cout << "If/then ";
     }
@@ -118,7 +118,7 @@ void displayTruthTableValues(bool p, bool q) { // parameters declared to compute
          << setw(8) << (p || q) // P OR Q
          << setw(8) << evaluateConditionalStatement(p, q) // Conditional Statement
          << setw(9) << (p != q) // P XOR Q
-         << setw(7) << (p == q) // P XOR Q
+         << setw(7) << (p == q) // P IFF Q
          << setw(11) << !(p && q) // P NAND Q
          << setw(10) << !(p || q) // P NOR Q
          << setw(9) << evaluateConditionalStatement(!p, !q) // Contrapositive of Conditional Statement
